@@ -1,0 +1,9 @@
+# connect
+$dsn = $dsn = "mysql:host=$dbHost;charset=utf8";
+$pdo = new PDO($dsn, $dbUser, $dbPwd);
+
+# create new Database
+//$pdo->query("CREATE DATABASE IF NOT EXISTS `$dbName` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci");
+
+# use db
+//$pdo->query("USE `$dbName`");

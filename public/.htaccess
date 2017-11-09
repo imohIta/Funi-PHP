@@ -1,0 +1,13 @@
+
+
+# You rewrite all requests to the
+# index.php file
+
+RewriteEngine On
+
+# RewriteBase /apps/medi/public/
+
+RewriteCond %{REQUEST_URI} !^/index\.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L,NC]

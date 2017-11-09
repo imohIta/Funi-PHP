@@ -1,0 +1,24 @@
+
+		*****  **  **  ***  **  **    **    ****
+		***    **  **  ** * **  **     *    *  *
+		**     ******  **  ***  **    *** * **** 
+
+
+****************************************************
+ 				USING NAMESPACES
+****************************************************
+-To support Autoloading...Namespace must mimic the folder structure from the root of 
+the framework to the parent directory of the required file
+     e.g core\vendors\mailer for mailer.class.php inside funi1.0/core/vendors/mailer/
+	 
+	 
+
+****************************************************
+				NAMING MVC CLASSES
+****************************************************
+
+MVC Classes (i.e Classes that are either Models, Views or controllers ) in Funi 1.0 Framework
+are named thus:
+	Models : filename.model.php where the classname is FilenameModel
+	Views : filename.view.php where the classname is FilenameView
+	Controllers : filename.controller.php where the classname is FilenameController
