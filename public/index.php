@@ -14,7 +14,7 @@ define("ACCESS", true);
 
 define ("PATH", realpath(__DIR__ . '/../'));
 
-$parts = explode("/", PATH);
+$parts = explode(DIRECTORY_SEPARATOR, PATH);
 define("PARENT_DIR", $parts[count($parts) - 1]);
 
 
