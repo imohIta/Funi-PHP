@@ -1,0 +1,12 @@
+.logo-txt{
+    font-family: 'Roboto', sans-serif;
+    font-size:24px;
+    margin-top:15px;
+
+}
+
+.logo-txt sup{
+    font-size:13px;
+    margin-top:-10px;
+    /*color: #FBC59B;*/
+}

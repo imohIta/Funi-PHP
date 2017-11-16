@@ -24,7 +24,7 @@ class Router extends FuniObject{
 
 	 //private static $_instance = NULL;
 
-	 public function __construct($uri, $path = '/apps/funi1.0/public/'){
+	 public function __construct($uri, $path = '/apps/' . PARENT_DIR . '/public/'){
 
 		//set default Mthd
 		$this->_params['mthd'] = 'render';
@@ -137,7 +137,7 @@ class Router extends FuniObject{
 		#$view = $this->_component . 'View';
 
 		#use only one view...since the view do nealy the same thing
-		#if u ever need a dedicated view for a component, create it in the component cntrler and attach to the component's model
+		#if u ever need a dedicated view for a component, create it in the component cntler and attach to the component's model
 		$view = 'GeneralView';
 		$ctrl = $this->_component . 'Controller';
 
