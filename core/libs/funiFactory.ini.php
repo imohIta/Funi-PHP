@@ -37,11 +37,13 @@ $env = stripos($_SERVER['HTTP_HOST'], 'localhost') === false
 # check if framework has been installed from installer
 if(!file_exists(PATH . '/install/index.php')){
 
+	$configFile = $env == 'development' ? 'dbConfig.php' ? 'dbConfig-prod.php';
 
 	# check if config file exist
-	if (is_file(PATH . '/core/configs/dbConfig.php')) {
+	if (is_file(PATH . '/core/configs/' . $configFile)) {
 
-		require_once PATH . '/core/configs/dbConfig.php';
+
+		require_once PATH . '/core/configs/' . $configFile;
 
 		# create database object
 		$database = new Database();
@@ -68,23 +70,9 @@ if(!file_exists(PATH . '/install/index.php')){
 						'dbUser' => $settings->dbUser
 					));
 
-		# recreate db object with database production settings
-		if($env == 'production'){
-
-			# create database object
-			$database = new Database(array(
-				'dbHost' => $settings->dbHost,
-				'dbName' => $settings->dbName,
-				'dbPwd' => Authenticator::simpleCrypt($settings->dbPwd, 'd'),
-				'dbUser' => $settings->dbUser
-			));
-		}
-
-
 
 		# create registry object
 		$registry = Registry::getInstance();
-
 
 		# create Autoloader Object
 		$autoloader = new Autoloader(array('application','core'), $config);

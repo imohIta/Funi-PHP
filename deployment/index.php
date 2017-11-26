@@ -103,10 +103,10 @@
             $settings = json_encode(array(
                 'appName' => $appName,
                 'baseUrl' => $baseUrl,
-                'dbName' => $_SESSION['dbName'],
-                'dbHost' => $_SESSION['dbHost'],
-                'dbUser' => $_SESSION['dbUser'],
-                'dbPwd' => simpleCrypt($_SESSION['dbPwd'])
+                'dbName' => $dbName,
+                'dbHost' => $dbHost,
+                'dbUser' => $dbUser,
+                'dbPwd' => simpleCrypt($dbPwd)
             ));
 
 
@@ -115,6 +115,22 @@
             $st->bindValue(':production', $settings, PDO::PARAM_STR);
             $st->execute();
             $st = null;
+
+
+            # create production db-Config production File
+            $str ="<?php
+
+                	$"."dbHost = '".$dbHost."';
+                	$"."dbUser = '".$dbUser."';
+                	$"."dbPwd = '".$dbPwd."';
+                	$"."dbName = '".$dbName."';
+
+                	".file_get_contents('../setUpDir/config.txt')."
+                ?>";
+            # try to write genrated string into a new file config.php
+            if (!file_put_contents('../core/configs/dbConfig-prod.php', $str)) {
+                $no_perm = true;
+            }
 
             $successMsg = "Deployment Paramters successfully set";
 
