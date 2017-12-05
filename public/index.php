@@ -10,16 +10,24 @@
 * Front-end application entry point
 */
 
+# define variable to allow access to the app
 define("ACCESS", true);
 
+# define application base Path
 define ("PATH", realpath(__DIR__ . '/../'));
 
+# define application parent directory
 $parts = explode(DIRECTORY_SEPARATOR, PATH);
 define("PARENT_DIR", $parts[count($parts) - 1]);
 
 
-# set default time zone
-date_default_timezone_set('Africa/Lagos');
+# define Environment
+$env = stripos($_SERVER['HTTP_HOST'], 'localhost') === false
+		? 'production' : 'development';
+
+define("ENV", $env);
+
+
 
 # set global Objects
 global $registry, $session;

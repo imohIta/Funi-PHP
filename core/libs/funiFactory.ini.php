@@ -59,6 +59,10 @@ if(!file_exists(PATH . '/install/index.php')){
 		$settings = json_decode($settings[$env]);
 
 
+		# set default time zone
+		date_default_timezone_set($settings->timezone);
+
+
 		$config = new Config(array(
 						'basePath' => PATH,
 						'baseUri' => $settings->baseUrl,
