@@ -1,4 +1,4 @@
-# Funi
+# Funi-PHP
 An open-source PHP web framework to allow for quick and easy development of web applications following the model–view–controller (MVC) design pattern.
 It provides an installer that helps make setup easy and a deployer that helps with deployment, saving
 you the hassle of going to your code to change your deployment settings every time
