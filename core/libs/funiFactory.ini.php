@@ -37,7 +37,7 @@ $env = stripos($_SERVER['HTTP_HOST'], 'localhost') === false
 # check if framework has been installed from installer
 if(!file_exists(PATH . '/install/index.php')){
 
-	$configFile = $env == 'development' ? 'dbConfig.php' ? 'dbConfig-prod.php';
+	$configFile = $env == 'development' ? 'dbConfig.php' : 'dbConfig-prod.php';
 
 	# check if config file exist
 	if (is_file(PATH . '/core/configs/' . $configFile)) {
